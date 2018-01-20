@@ -10,6 +10,7 @@ class UniversitiesController < ApplicationController
   # GET /universities/1
   # GET /universities/1.json
   def show
+    @courses = Course.where(university_id: params[:id])
   end
 
   # GET /universities/new

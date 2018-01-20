@@ -1,24 +1,13 @@
-<p id="notice"><%= notice %></p>
+</br>
 
-<p>
-  <strong>Title1:</strong>
-  <%= @course.title1 %>
-</p>
+<h1>Find someone to help you with <%= @course.title1 %></h1>
 
-<p>
-  <strong>Title2:</strong>
-  <%= @course.title2 %>
-</p>
+</br>
 
-<p>
-  <strong>Subject:</strong>
-  <%= @course.subject %>
-</p>
+Tutors:
+<% @tutors.each do |id, tutor| %>
+  <%= tutor.name %>
+<% end %>
 
-<p>
-  <strong>University:</strong>
-  <%= @course.university_id %>
-</p>
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<% link_to 'Edit', edit_course_path(@course) %>
+<% link_to 'Back', courses_path %>

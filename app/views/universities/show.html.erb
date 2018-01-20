@@ -1,19 +1,32 @@
-<p id="notice"><%= notice %></p>
+</br>
 
-<p>
-  <strong>Name:</strong>
-  <%= @university.name %>
-</p>
+<h1>Choose a course from <%= @university.name %></h1>
 
-<p>
-  <strong>State:</strong>
-  <%= @university.state %>
-</p>
+</br>
 
-<p>
-  <strong>City:</strong>
-  <%= @university.city %>
-</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Course Name</th>
+            <th scope="col">Subject</th>
+        </tr>
+    </thead>
 
-<%= link_to 'Edit', edit_university_path(@university) %> |
-<%= link_to 'Back', universities_path %>
+    <tbody>
+        <% @courses.each do |course| %>
+            <tr class="row-uni" data-link="<%= course_path(course) %>">
+                <td><%= course.title1 %></td>
+                <td><%= course.subject %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<script>
+    $("tr[data-link]").click(function() {
+        window.location = $(this).data("link")
+    })
+</script>
+
+<% link_to 'Edit', edit_university_path(@university) %>
+<% link_to 'Back', universities_path %>

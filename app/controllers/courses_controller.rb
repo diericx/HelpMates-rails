@@ -10,6 +10,13 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+    @tutors = Hash.new
+    sessions = Session.where(course_id: params[:id])
+    sessions.each do |session|
+      if @tutors[session.user_id] == nil
+        @tutors[session.user_id] = User.find(session.user_id)
+      end
+    end
   end
 
   # GET /courses/new
