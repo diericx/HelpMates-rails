@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_time: 2018-01-20
+  end_time: 2018-01-20
+  hourly_rate: 
+  repeat_weekly: false
+  user_id: 1
+  course_id: 1
+
+two:
+  start_time: 2018-01-20
+  end_time: 2018-01-20
+  hourly_rate: 
+  repeat_weekly: false
+  user_id: 1
+  course_id: 1

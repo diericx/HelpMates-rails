@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :sessions
+  resources :courses
+  resources :universities
   devise_for :users
   get 'welcome/index'
 
