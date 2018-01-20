@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   resources :reviews
+  resources :sessions
   resources :courses
   resources :universities
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+  devise_for :users
   get 'welcome/index'
 
   root 'welcome#index'
