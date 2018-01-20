@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :reviews
-  resources :sessions
   resources :courses
   resources :universities
-  devise_for :users
   get 'welcome/index'
 
   root 'welcome#index'
