@@ -1,2 +1,27 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+</br>
+
+<h1>Choose your University!</h1>
+
+</br>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Universities</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @universities.each do |university| %>
+            <tr class="row-uni" data-link="<%= university_path(university) %>">
+                <td><%= university.name %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<script>
+    $("tr[data-link]").click(function() {
+        window.location = $(this).data("link")
+    })
+</script>
