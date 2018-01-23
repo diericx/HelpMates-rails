@@ -1,3 +1,19 @@
 // Place all the styles related to the Courses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.row-tutor {
+    height: $row-tutor-ht;
+
+    .info {
+        padding-left: 10px;
+        font-size: 80%;
+        line-height: 15px;
+    }
+    
+    span {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: normal;
+    }
+}

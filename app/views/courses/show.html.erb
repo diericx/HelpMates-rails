@@ -8,14 +8,36 @@
   Available Tutors:
 </div>
 
-<% @tutors.each do |id, tutor| %>
-<% if tutor.avatar.url.present? %>
+<div class="col">
+  
+  <% @tutors.each do |id, tutor| %>
+    <div class="row row-tutor">
+      <div class="col-xs-2">
+        <% if tutor.avatar.url.present? %>
+          <%= image_tag(tutor.avatar.url, class: "profile-img-sm") %>
+        <% end %>
+      </div>
+      <div class="col-xs-2 my-auto info">
+          <%= tutor.name %> </br>
+          1st Year </br>
+          CS Major </br>
+      </div>
+      <!-- <table style="height: 100px;">
+        <tbody>
+          <tr>
+            <td class="align-middle">
+              
+            </td>
+            <td class="info">
 
-<%= image_tag(tutor.avatar.url, class: "profile-img-sm") %>
+            </td>
+          </tr>
+        </tbody>
+      </table> -->
+    </div>
+  <% end %>
 
-<% end %>
-  <%= tutor.name %>
-<% end %>
+</div>
 
 <% link_to 'Edit', edit_course_path(@course) %>
 <% link_to 'Back', courses_path %>

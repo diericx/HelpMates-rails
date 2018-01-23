@@ -13,4 +13,11 @@
  */
  @import "bootstrap";
  @import "site";
- @import "welcome"
+ @import "welcome";
+ @import "courses";
+
+ @font-face {
+    font-family:'milkshake';
+    src:font-url('Milkshake.ttf');
+    src:font-url('Milkshake.ttf?#iefix') format("truetype"),
+  } 
