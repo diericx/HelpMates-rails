@@ -1,3 +1,13 @@
 nav {
     background-color: #e3f2fd;
 }
+
+%img-circle {
+    border-radius: 50%;
+}
+
+.profile-img-sm {
+    @extend %img-circle;
+    width: 70px;
+    height: 70px;
+}

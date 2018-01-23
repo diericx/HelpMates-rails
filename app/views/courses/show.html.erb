@@ -4,8 +4,16 @@
 
 </br>
 
-Tutors:
+<div>
+  Available Tutors:
+</div>
+
 <% @tutors.each do |id, tutor| %>
+<% if tutor.avatar.url.present? %>
+
+<%= image_tag(tutor.avatar.url, class: "profile-img-sm") %>
+
+<% end %>
   <%= tutor.name %>
 <% end %>
 
