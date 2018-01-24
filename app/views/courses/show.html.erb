@@ -1,13 +1,13 @@
 </br>
 
-<h1>Find someone to help you with <%= @course.title1 %></h1>
+<h1><%= @course.title1 %></h1>
 
 </br>
 
 <div class="col">
   
   <% @tutors.each do |id, tutor| %>
-    <% url = url_for controller: 'availabilities', action: 'index' %>
+    <% url = url_for controller: 'users', action: 'show', id: tutor.id %>
     <div class="row row-tutor clickable-row" data-href=<%= url %>>
       <!-- User info (profile pic, name, major, etc.) -->
       <div class="col-5 info-left">
