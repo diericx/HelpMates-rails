@@ -11,10 +11,24 @@ class CoursesController < ApplicationController
   # GET /courses/1.json
   def show
     @tutors = Hash.new
-    sessions = Session.where(course_id: params[:id])
-    sessions.each do |session|
-      if @tutors[session.user_id] == nil
-        @tutors[session.user_id] = User.find(session.user_id)
+    availabilities = Availability.where(course_id: params[:id])
+    availabilities.each do |avlablty|
+      if @tutors[avlablty.user_id] == nil
+        # find user who owns this session
+        tutor = User.find(avlablty.user_id)
+        @tutors[avlablty.user_id] = tutor
+        # get user's rating
+        rating = -1
+        reviews = Review.where(user_id: tutor)
+        reviews.each do |review|
+          rating += review.rating
+        end 
+        if reviews.length > 0
+          rating = rating/reviews.length
+        end
+        tutor.rating = rating
+        tutor.reviews = reviews.length
+        tutor.price = avlablty.hourly_rate
       end
     end
   end

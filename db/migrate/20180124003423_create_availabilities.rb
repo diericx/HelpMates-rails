@@ -1,6 +1,6 @@
-class CreateSessions < ActiveRecord::Migration[5.1]
+class CreateAvailabilities < ActiveRecord::Migration[5.1]
   def change
-    create_table :sessions do |t|
+    create_table :availabilities do |t|
       t.date :start_time
       t.date :end_time
       t.money :hourly_rate
