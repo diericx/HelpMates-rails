@@ -1,4 +1,6 @@
 $row-tutor-ht: 70px;
+$off-white: rgb(249, 249, 249);
+$top-buffer: 40px;
 
 .navbar-brand {
     font-family: 'milkshake';
@@ -9,12 +11,24 @@ $row-tutor-ht: 70px;
 }
 
 nav {
-    background-color: rgb(249, 249, 249);
+    background-color: $off-white;
 }
 
 body {
     font-family: 'open-sans-light';
     background-color: #e3f2fd;
+}
+
+#top-buffer {
+    height: $top-buffer;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.boxed {
+    background-color: $off-white;
 }
 
 %img-circle {
@@ -25,4 +39,9 @@ body {
     @extend %img-circle;
     width: 70px;
     height: 70px;
+}
+.profile-img-lg {
+    @extend %img-circle;
+    width: 130px;
+    height: 130px;
 }
