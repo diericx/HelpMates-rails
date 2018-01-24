@@ -10,7 +10,7 @@
     <% url = url_for controller: 'availabilities', action: 'index' %>
     <div class="row row-tutor clickable-row" data-href=<%= url %>>
       <!-- User info (profile pic, name, major, etc.) -->
-      <div class="col-5 info">
+      <div class="col-5 info-left">
         <% if tutor.avatar.url.present? %>
           <%= image_tag(tutor.avatar.url, class: "profile-img-sm") %>
         <% end %>
@@ -21,34 +21,38 @@
         </p>
       </div>
 
-      <!-- star rating -->
-      <div class="col-4 my-auto rating">
+      <div class="col-7 my-auto info-right">
+        <div class="row">
+          <!-- star rating -->
+          <div class="col-8 my-auto rating">
+            <% if tutor.rating == -1 %>
+              <% (0..4).each do %>
+                <i class="fa fa-star-o star-empty"></i>
+              <% end %>
+            <% else %>
+              <% (tutor.rating+1).times do %>
+                <i class="fa fa-star star-full"></i>
+              <% end %>
+              <% (4-tutor.rating).times do %>
+                <i class="fa fa-star-o star-empty"></i>
+              <% end %>
+            <% end %>
+            </br> 
 
-        <% if tutor.rating == -1 %>
-          <% (0..4).each do %>
-            <i class="fa fa-star-o star-empty"></i>
-          <% end %>
-        <% else %>
-          <% (tutor.rating+1).times do %>
-            <i class="fa fa-star star-full"></i>
-          <% end %>
-          <% (4-tutor.rating).times do %>
-            <i class="fa fa-star-o star-empty"></i>
-          <% end %>
-        <% end %>
-        </br> 
-
-        <div class="rating-desc">
-          <%= tutor.reviews %> 
-          review
-          <% if tutor.reviews > 1 %>
-            s
-          <% end %> 
+            <div class="rating-desc">
+              <%= tutor.reviews %> 
+              review
+              <% if tutor.reviews > 1 %>
+                s
+              <% end %> 
+            </div>
+          </div>
+          <div class="col-4">
+            <p class="my-auto price">
+              $<%= tutor.price %>/hr
+            </p>
+          </div>
         </div>
-      </div>
-
-      <div class="col-3 my-auto price">
-        $<%= tutor.price %>/hr
       </div>
     </div>
   <% end %>
