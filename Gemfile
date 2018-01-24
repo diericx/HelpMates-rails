@@ -59,3 +59,4 @@ gem 'sprockets-rails'
 gem 'jquery-rails'
 gem 'carrierwave', '~> 1.0'
 gem "font-awesome-rails"
+gem 'bootstrap-timepicker-rails'

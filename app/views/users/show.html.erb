@@ -13,5 +13,22 @@
 </div>
 
 <div class="row boxed availability">
-    asdf
+    <div class="col-12">
+        <b><%= @user.name %>'s Availability</b>
+    </div>
+
+    <div class="col-12">
+        <table class="table">
+            <tbody>
+                <% @availabilities.each do |avlblty| %>
+                    <tr>
+                        <td><%= avlblty.start_time %></td>
+                        <td><%= avlblty.end_time %></td>
+                    </tr>
+                <% end %>
+
+            </tbody>
+        </table>
+    </div>
+
 </div>
