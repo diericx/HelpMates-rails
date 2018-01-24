@@ -1,9 +1,7 @@
-$row-tutor-ht: 70px;
-$off-white: rgb(249, 249, 249);
-$top-buffer: 40px;
+@import "variables";
 
 .navbar-brand {
-    font-family: 'milkshake';
+    font-family: 'Milkshake';
     color: rgb(165, 164, 204) !important;
     font-size: 160%;
     margin-top: -30px;

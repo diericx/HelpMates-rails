@@ -13,15 +13,14 @@
  */
  @import "bootstrap";
  @import "font-awesome";
-  @import "bootstrap-timepicker";
-  
+
  @import "site";
  @import "welcome";
  @import "courses";
  @import "users";
 
   @font-face {
-    font-family:'milkshake';
+    font-family:'Milkshake';
     src:font-url('Milkshake.ttf');
     src:font-url('Milkshake.ttf?#iefix') format("truetype"),
   } 

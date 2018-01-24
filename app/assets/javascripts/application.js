@@ -15,5 +15,4 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
-//= require bootstrap-timepicker
 //= require_tree .
