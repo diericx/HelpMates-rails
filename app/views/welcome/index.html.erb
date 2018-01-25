@@ -4,24 +4,8 @@
 
 </br>
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th scope="col"></th>
-        </tr>
-    </thead>
-
-    <tbody>
-        <% @universities.each do |university| %>
-            <tr class="row-uni" data-link="<%= university_path(university) %>">
-                <td><%= university.name %></td>
-            </tr>
-        <% end %>
-    </tbody>
-</table>
-
-<script>
-    $("tr[data-link]").click(function() {
-        window.location = $(this).data("link")
-    })
-</script>
+<% @universities.each do |university| %>
+    <div class="row-uni clickable" data-href="<%= university_path(university) %>">
+        <%= university.name %>
+    </div>
+<% end %>

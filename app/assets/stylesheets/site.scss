@@ -43,3 +43,36 @@ body {
     width: 130px;
     height: 130px;
 }
+
+.row-flex {
+    $border-width: 2px;
+    background-color: $off-white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid $light-gray;
+
+    &:hover {
+        background-color: $off-white-select;
+        cursor: pointer;
+    }
+
+    &:active {
+        border-bottom-width: 0px;
+        margin-top: $border-width;
+    }
+    
+    .info-left {
+        display: flex;
+        font-size: 80%;
+        line-height: 15px;
+
+        p {
+            padding-left: 10px;
+        }
+    }
+
+    .info-right {
+        display: flex;
+    }
+}
