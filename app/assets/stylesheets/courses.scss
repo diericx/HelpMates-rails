@@ -35,3 +35,7 @@
         font-size: 200%;
     }
 }
+
+.row-course {
+    @extend .row-flex;
+}
