@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @help_session_request.user_id %>
+</p>
+
+<p>
+  <strong>Tutor:</strong>
+  <%= @help_session_request.tutor_id %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @help_session_request.course_id %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @help_session_request.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @help_session_request.end %>
+</p>
+
+<p>
+  <strong>Accepted:</strong>
+  <%= @help_session_request.accepted %>
+</p>
+
+<p>
+  <strong>Denied:</strong>
+  <%= @help_session_request.denied %>
+</p>
+
+<p>
+  <strong>Denied by:</strong>
+  <%= @help_session_request.denied_by %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @help_session_request.message %>
+</p>
+
+<%= link_to 'Edit', edit_help_session_request_path(@help_session_request) %> |
+<%= link_to 'Back', help_session_requests_path %>

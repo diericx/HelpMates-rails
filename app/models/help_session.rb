@@ -1,0 +1,2 @@
+class HelpSession < ApplicationRecord
+end

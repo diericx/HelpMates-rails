@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>From user:</strong>
+  <%= @payment.from_user_id %>
+</p>
+
+<p>
+  <strong>To user:</strong>
+  <%= @payment.to_user_id %>
+</p>
+
+<p>
+  <strong>Help session:</strong>
+  <%= @payment.help_session_id %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @payment.amount %>
+</p>
+
+<p>
+  <strong>Tip:</strong>
+  <%= @payment.tip %>
+</p>
+
+<p>
+  <strong>Completed:</strong>
+  <%= @payment.completed %>
+</p>
+
+<p>
+  <strong>Proof:</strong>
+  <%= @payment.proof %>
+</p>
+
+<%= link_to 'Edit', edit_payment_path(@payment) %> |
+<%= link_to 'Back', payments_path %>

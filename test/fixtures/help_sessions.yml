@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  tutor_id: 1
+  course_id: 1
+  user_started: false
+  tutor_started: false
+  started_at: 2018-01-29 16:46:34
+  user_ended: false
+  tutor_ended: false
+  ended_at: 2018-01-29 16:46:34
+  start: 2018-01-29 16:46:34
+  end: 2018-01-29 16:46:34
+  cancelled: false
+  cancelled_by: 1
+  message: MyString
+
+two:
+  user_id: 1
+  tutor_id: 1
+  course_id: 1
+  user_started: false
+  tutor_started: false
+  started_at: 2018-01-29 16:46:34
+  user_ended: false
+  tutor_ended: false
+  ended_at: 2018-01-29 16:46:34
+  start: 2018-01-29 16:46:34
+  end: 2018-01-29 16:46:34
+  cancelled: false
+  cancelled_by: 1
+  message: MyString

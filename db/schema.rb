@@ -10,21 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180124022050) do
+ActiveRecord::Schema.define(version: 20180129234641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "availabilities", force: :cascade do |t|
-    t.money "hourly_rate", scale: 2
-    t.boolean "repeat_weekly"
     t.integer "user_id"
     t.integer "course_id"
+    t.datetime "start"
+    t.datetime "end"
+    t.money "hourly_rate", scale: 2
+    t.boolean "repeat_weekly"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "day"
-    t.time "start_time"
-    t.time "end_time"
   end
 
   create_table "completed_courses", force: :cascade do |t|
@@ -40,6 +39,51 @@ ActiveRecord::Schema.define(version: 20180124022050) do
     t.string "title2"
     t.string "subject"
     t.integer "university_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "help_session_requests", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "tutor_id"
+    t.integer "course_id"
+    t.datetime "start"
+    t.datetime "end"
+    t.boolean "accepted"
+    t.boolean "denied"
+    t.integer "denied_by"
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "help_sessions", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "tutor_id"
+    t.integer "course_id"
+    t.boolean "user_started"
+    t.boolean "tutor_started"
+    t.datetime "started_at"
+    t.boolean "user_ended"
+    t.boolean "tutor_ended"
+    t.datetime "ended_at"
+    t.datetime "start"
+    t.datetime "end"
+    t.boolean "cancelled"
+    t.integer "cancelled_by"
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.integer "from_user_id"
+    t.integer "to_user_id"
+    t.integer "help_session_id"
+    t.money "amount", scale: 2
+    t.money "tip", scale: 2
+    t.boolean "completed"
+    t.string "proof"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
