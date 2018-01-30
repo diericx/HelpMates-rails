@@ -24,15 +24,15 @@ class HelpSessionRequestsController < ApplicationController
   # POST /help_session_requests
   # POST /help_session_requests.json
   def create
-    @help_session_request = HelpSessionRequest.new(help_session_request_params)
+    @help_session_request = HelpSessionRequest.new(user_id: params[:user_id], tutor_id: params[:tutor_id], course_id: params[:course_id], start: params[:start], end: params[:end])
 
     respond_to do |format|
       if @help_session_request.save
-        format.html { redirect_to @help_session_request, notice: 'Help session request was successfully created.' }
+        format.html { redirect_to user_path(id: params[:tutor_id]), notice: 'Sent Request!' }
         format.json { render :show, status: :created, location: @help_session_request }
       else
-        format.html { render :new }
-        format.json { render json: @help_session_request.errors, status: :unprocessable_entity }
+        # format.html { render :new }
+        # format.json { render json: @help_session_request.errors, status: :unprocessable_entity }
       end
     end
   end

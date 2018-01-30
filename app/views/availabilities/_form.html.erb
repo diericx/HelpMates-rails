@@ -12,18 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :start_time %>
-    <%= form.text_field :start_time, id: :availability_start_time %>
+    <%= form.label :start %>
+    <%= form.datetime_field :start, id: :availability_start %>
   </div>
 
   <div class="field">
-    <%= form.label :end_time %>
-    <%= form.text_field :end_time, id: :availability_end_time %>
-  </div>
-
-  <div class="field">
-    <%= form.label :hourly_rate %>
-    <%= form.text_field :hourly_rate, id: :availability_hourly_rate %>
+    <%= form.label :end %>
+    <%= form.datetime_field :end, id: :availability_end %>
   </div>
 
   <div class="field">
