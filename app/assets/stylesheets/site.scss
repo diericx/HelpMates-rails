@@ -89,15 +89,14 @@ body {
 }
 
 .fa-stack {
-    color: $font-color;
     height: $navbar-height;
-    font-size: 140%;
-    margin-top: -($navbar-height/2);
+    font-size: 120%;
+    margin-top: -10px;
 }
 
-.fa-stack[data-count]:after{
+.fa-stack[data-count][display-badge]:after{
     position:absolute;
-    right:5%;
+    right:0%;
     top:5%;
     content: attr(data-count);
     font-size:30%;

@@ -10,6 +10,7 @@ class HelpSessionRequestsController < ApplicationController
   # GET /help_session_requests/1
   # GET /help_session_requests/1.json
   def show
+
   end
 
   # GET /help_session_requests/new

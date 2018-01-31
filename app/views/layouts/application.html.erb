@@ -23,16 +23,18 @@
         <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="fa-stack has-badge" data-count="2">
+                <a class="nav-link dropdown-toggle <%= if @requests.length == 0 then "disabled" end %>" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="fa-stack" data-count="<%= @requests.length %>" <%= if @requests.length > 0 then "display-badge=true" end %>>
                         <i class="fa fa-stack-1x"></i>
                         <i class="fa fa-bell-o fa-stack-1x"></i>
-                      </span>
+                    </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <% @requests.each do |request| %>
-                      <a class="dropdown-item" href="#">Request from <%= request.user_name %></a>
-                      <div class="dropdown-divider"></div>
+                    <% @requests.each_with_index do |request, index| %>
+                      <a class="dropdown-item" href="<%= help_session_request_url(request) %>">Request from <%= request.user_name %></a>
+                      <% if index != @requests.length-1 %>
+                        <div class="dropdown-divider"></div>
+                      <% end %>
                     <% end %>
                   </div>
               </li>
