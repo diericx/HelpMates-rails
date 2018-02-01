@@ -3,16 +3,19 @@
 <p>
   <strong>User:</strong>
   <%= @help_session_request.user_id %>
+  <%= @help_session_request.user_name %>
 </p>
 
 <p>
   <strong>Tutor:</strong>
   <%= @help_session_request.tutor_id %>
+  <%= @help_session_request.tutor_name %>
 </p>
 
 <p>
   <strong>Course:</strong>
   <%= @help_session_request.course_id %>
+  <%= @help_session_request.course_name %>
 </p>
 
 <p>
@@ -45,5 +48,6 @@
   <%= @help_session_request.message %>
 </p>
 
-<%= link_to 'Edit', edit_help_session_request_path(@help_session_request) %> |
-<%= link_to 'Back', help_session_requests_path %>
+<% if @help_session_request.accepted == false && @help_session_request.tutor_id == current_user.id %>
+  <%= link_to "Accept", help_session_requests_accept_path(@help_session_request) %>
+<% end %>

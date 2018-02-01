@@ -10,7 +10,9 @@ class HelpSessionRequestsController < ApplicationController
   # GET /help_session_requests/1
   # GET /help_session_requests/1.json
   def show
-
+    @help_session_request.user_name = User.find(@help_session_request.user_id).name
+    @help_session_request.tutor_name = User.find(@help_session_request.tutor_id).name
+    @help_session_request.course_name = Course.find(@help_session_request.course_id).title1
   end
 
   # GET /help_session_requests/new
@@ -59,6 +61,18 @@ class HelpSessionRequestsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to help_session_requests_url, notice: 'Help session request was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def accept
+    request = HelpSessionRequest.find(params[:id])
+    if request.tutor_id == current_user.id
+      request.accepted = true
+      request.save
+    end
+    respond_to do |format|
+      format.html { redirect_to request, notice: 'Help session request was accepted.' }
+      format.json { render :show, status: :ok, location: @help_session_request }
     end
   end
 

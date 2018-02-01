@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resources :courses
   resources :universities
   resources :users
+
+  get 'help_session_requests/:id/accept', to: 'help_session_requests#accept', as: :help_session_requests_accept
+
   get 'welcome/index'
 
   root 'welcome#index'
