@@ -1,0 +1,11 @@
+</br>
+
+<h1>Choose your University</h1>
+
+</br>
+
+<% @universities.each do |university| %>
+    <div class="row-uni clickable" data-href="<%= university_path(university) %>">
+        <%= university.name %>
+    </div>
+<% end %>

@@ -31,7 +31,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <% @requests.each_with_index do |request, index| %>
-                      <a class="dropdown-item" href="<%= help_session_request_url(request) %>">Request from <%= request.user_name %></a>
+                      <a class="dropdown-item" href="<%= help_session_request_url(request) %>"><b><%= request.user_name %></b> needs your help!</a>
                       <% if index != @requests.length-1 %>
                         <div class="dropdown-divider"></div>
                       <% end %>
