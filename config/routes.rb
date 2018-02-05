@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'about/index'
+
+  get 'contact/index'
+
   resources :payments
   resources :help_sessions
   resources :help_session_requests
@@ -11,6 +15,8 @@ Rails.application.routes.draw do
   resources :users
 
   get 'help_session_requests/:id/accept', to: 'help_session_requests#accept', as: :help_session_requests_accept
+  get 'contact', to: 'contact#index'
+  get 'about', to: 'about#index'
 
   get 'welcome/index'
 

@@ -48,6 +48,6 @@
   <%= @help_session_request.message %>
 </p>
 
-<% if @help_session_request.accepted == false && @help_session_request.tutor_id == current_user.id %>
+<% if @help_session_request.accepted == nil && @help_session_request.tutor_id == current_user.id %>
   <%= link_to "Accept", help_session_requests_accept_path(@help_session_request) %>
 <% end %>
