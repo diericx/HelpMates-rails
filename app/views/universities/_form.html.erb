@@ -26,6 +26,17 @@
     <%= form.text_field :city, id: :university_city %>
   </div>
 
+  <% if university.avatar.url.present? %>
+  <%= image_tag(university.avatar.url) %>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :avatar do %>
+    <%= form.file_field :avatar %>
+    <%= form.hidden_field :avatar_cache %>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
