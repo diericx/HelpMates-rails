@@ -4,7 +4,7 @@ class HelpSessionsController < ApplicationController
   # GET /help_sessions
   # GET /help_sessions.json
   def index
-    @help_sessions = HelpSession.all
+    @help_sessions = HelpSession.where('user_id=? OR tutor_id=?', current_user.id, current_user.id)
   end
 
   # GET /help_sessions/1

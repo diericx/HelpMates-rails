@@ -65,11 +65,16 @@ class HelpSessionRequestsController < ApplicationController
   end
 
   def accept
+    # update request
     request = HelpSessionRequest.find(params[:id])
     if request.tutor_id == current_user.id
       request.accepted = true
       request.save
     end
+
+    # create the new session
+    create_new_help_session(request)
+
     respond_to do |format|
       format.html { redirect_to request, notice: 'Help session request was accepted.' }
       format.json { render :show, status: :ok, location: @help_session_request }
@@ -85,5 +90,15 @@ class HelpSessionRequestsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def help_session_request_params
       params.require(:help_session_request).permit(:user_id, :tutor_id, :course_id, :start, :end, :accepted, :denied, :denied_by, :message)
+    end
+
+    def create_new_help_session(request)
+      newSession = HelpSession.new
+      newSession.user_id = request.user_id
+      newSession.tutor_id = request.tutor_id
+      newSession.course_id = request.course_id
+      newSession.start = request.start
+      newSession.end = request.end
+      newSession.save
     end
 end
