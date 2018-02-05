@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   resources :users
 
   get 'help_session_requests/:id/accept', to: 'help_session_requests#accept', as: :help_session_requests_accept
+  get 'help_sessions/:id/start', to: 'help_sessions#start_session', as: :help_sessions_start
+  get 'help_sessions/:id/end', to: 'help_sessions#end_session', as: :help_sessions_end
+
   get 'contact', to: 'contact#index'
   get 'about', to: 'about#index'
 

@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>User:</strong>
   <%= @help_session.user_id %>
@@ -70,5 +69,10 @@
   <%= @help_session.message %>
 </p>
 
-<%= link_to 'Edit', edit_help_session_path(@help_session) %> |
-<%= link_to 'Back', help_sessions_path %>
+<% if (@is_tutor && !@help_session.tutor_started) || (!@is_tutor && !@help_session.user_started) %>
+    <%= link_to "Start Session", help_sessions_start_path %>
+<% end %>
+
+<% if (@help_session.started_at != nil && @is_tutor && !@help_session.tutor_ended) || (!@is_tutor && !@help_session.user_ended) %>
+    <%= link_to "End Session", help_sessions_end_path %>
+<% end %>

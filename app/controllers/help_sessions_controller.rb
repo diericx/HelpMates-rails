@@ -10,6 +10,7 @@ class HelpSessionsController < ApplicationController
   # GET /help_sessions/1
   # GET /help_sessions/1.json
   def show
+    @is_tutor = current_user.id == @help_session.tutor_id
   end
 
   # GET /help_sessions/new
@@ -58,6 +59,51 @@ class HelpSessionsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to help_sessions_url, notice: 'Help session was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def start_session
+    session = HelpSession.find(params[:id])
+    is_tutor = session.tutor_id == current_user.id
+
+    # set correct "started" attribute to true
+    if is_tutor == true
+      session.tutor_started = true
+    else 
+      session.user_started = true
+    end
+    # set start time if both started
+    if session.tutor_started && session.user_started
+      session.started_at = Time.now
+    end
+    
+    session.save
+
+    respond_to do |format|
+      format.html { redirect_to session, notice: 'Help session was started.' }
+      format.json { render :show, status: :ok, location: session }
+    end
+  end
+
+  def end_session
+    session = HelpSession.find(params[:id])
+    is_tutor = session.tutor_id == current_user.id
+
+    # set correct "started" attribute to true
+    if is_tutor == true
+      session.tutor_ended = true
+    else 
+      session.user_ended = true
+    end
+    # set start time if both started
+    if session.tutor_ended && session.user_ended
+      session.ended_at = Time.now
+    end
+    session.save
+
+    respond_to do |format|
+      format.html { redirect_to session, notice: 'Help session was ended.' }
+      format.json { render :show, status: :ok, location: session }
     end
   end
 
