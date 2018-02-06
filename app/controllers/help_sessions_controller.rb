@@ -11,6 +11,8 @@ class HelpSessionsController < ApplicationController
   # GET /help_sessions/1.json
   def show
     @is_tutor = current_user.id == @help_session.tutor_id
+    @help_session.user = User.find(@help_session.user_id)
+    @help_session.tutor = User.find(@help_session.tutor_id)
   end
 
   # GET /help_sessions/new

@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-<p>
+<!-- <p>
   <strong>User:</strong>
   <%= @help_session.user_id %>
 </p>
@@ -67,7 +66,56 @@
 <p>
   <strong>Message:</strong>
   <%= @help_session.message %>
-</p>
+</p> -->
+
+<div class="col-10 offset-1">
+  
+  <div class="row row-tutor no-bottom-margin">
+
+    <!-- User info (profile pic, name, major, etc.) -->
+    <div class="info-left">
+      <% if @help_session.tutor.avatar.url.present? %>
+        <%= image_tag(@help_session.tutor.avatar.url, class: "profile-img-sm") %>
+      <% end %>
+
+      <p class="my-auto">
+        <%= @help_session.tutor.name %> </br>
+        1st Year </br>
+        CS Major </br>
+      </p>
+    </div>
+
+    <!-- hourly rate -->
+    <div class="my-auto info-right">
+        <div>
+          <p class="my-auto price">
+            $<%= @help_session.tutor.price %>/hr
+          </p>
+        </div>
+    </div>
+    <!-- line to separate between data below -->
+    <div class="col-12">
+      <hr>
+    </div>
+  </div>
+
+
+  <div class="row session-data">
+    <div class="col-12 center-align">
+      Tuesday, February 5 at 10:00 AM
+    </div>
+  </div>
+
+  <div class="row session-buttons">
+    <div class="col-6 start-btn center-align">
+      Start
+    </div>
+    <div class="col-6 cancel-btn center-align">
+      Cancel
+    </div>
+  </div>
+
+</div>
 
 <% if (@is_tutor && !@help_session.tutor_started) || (!@is_tutor && !@help_session.user_started) %>
     <%= link_to "Start Session", help_sessions_start_path %>

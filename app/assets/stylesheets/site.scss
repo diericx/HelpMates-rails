@@ -13,6 +13,11 @@
     border-bottom: $border-width solid $light-gray;
 }
 
+.top-border {
+    $border-width: 3px;
+    border-top: $border-width solid $light-gray;
+}
+
 nav {
     @extend .bottom-border;
     background-color: $off-white;
@@ -29,6 +34,10 @@ body {
 
 .center-align {
     text-align: center;
+}
+
+.no-bottom-margin {
+    margin-bottom: 0px !important;
 }
 
 .boxed {
@@ -51,7 +60,6 @@ body {
 }
 
 .row-flex {
-    @extend .bottom-border;
     $margin-bottom: 10px;
     $padding: 15px;
 
@@ -60,11 +68,6 @@ body {
     margin-bottom: $margin-bottom;
     display: flex;
     justify-content: space-between;
-
-    &:hover {
-        background-color: $off-white-select;
-        cursor: pointer;
-    }
 
     &:active {
         border-bottom-width: 0px;
@@ -85,6 +88,14 @@ body {
 
     .info-right {
         display: flex;
+    }
+}
+
+.row-clickable {
+    @extend .bottom-border;
+    &:hover {
+        background-color: $off-white-select;
+        cursor: pointer;
     }
 }
 

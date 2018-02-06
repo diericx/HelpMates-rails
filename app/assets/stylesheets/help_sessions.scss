@@ -1,3 +1,24 @@
 // Place all the styles related to the HelpSessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.session-data {
+    padding-top: 25px;
+    background-color: $off-white;
+    height: 300px;
+}
+
+.start-btn {
+    @extend .bottom-border;
+    border-color: $green-border;
+    background-color: $green;
+    height: 50px;
+    line-height: 50px;
+}
+
+.cancel-btn {
+    @extend .bottom-border;
+    border-color: $red-border;
+    background-color: $red;
+    height: 50px;
+    line-height: 50px;
+}

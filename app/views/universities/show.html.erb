@@ -5,7 +5,7 @@
 </br>
 
 <% @courses.each do |course| %>
-    <div class="row-course clickable" data-href="<%= course_path(course) %>">
+    <div class="row row-course row-clickable" data-href="<%= course_path(course) %>">
         <%= course.title1 %>
     </div>
     <% course.subject %>
