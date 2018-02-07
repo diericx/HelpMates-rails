@@ -8,4 +8,8 @@ class User < ApplicationRecord
   validates_presence_of   :avatar
   validates_integrity_of  :avatar
   validates_processing_of :avatar
+
+  attr_accessor :rating
+  attr_accessor :reviews
+  attr_accessor :price
 end

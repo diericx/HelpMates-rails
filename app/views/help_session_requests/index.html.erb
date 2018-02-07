@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Help Session Requests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Tutor</th>
+      <th>Course</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>Accepted</th>
+      <th>Denied</th>
+      <th>Denied by</th>
+      <th>Message</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @help_session_requests.each do |help_session_request| %>
+      <tr>
+        <td><%= help_session_request.user_id %></td>
+        <td><%= help_session_request.tutor_id %></td>
+        <td><%= help_session_request.course_id %></td>
+        <td><%= help_session_request.start %></td>
+        <td><%= help_session_request.end %></td>
+        <td><%= help_session_request.accepted %></td>
+        <td><%= help_session_request.denied %></td>
+        <td><%= help_session_request.denied_by %></td>
+        <td><%= help_session_request.message %></td>
+        <td><%= link_to 'Show', help_session_request %></td>
+        <td><%= link_to 'Edit', edit_help_session_request_path(help_session_request) %></td>
+        <td><%= link_to 'Destroy', help_session_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Help Session Request', new_help_session_request_path %>

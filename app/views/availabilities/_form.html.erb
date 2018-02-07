@@ -1,0 +1,42 @@
+<%= form_with(model: availability, local: true) do |form| %>
+  <% if availability.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(availability.errors.count, "error") %> prohibited this availability from being saved:</h2>
+
+      <ul>
+      <% availability.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :start %>
+    <%= form.datetime_field :start, id: :availability_start %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end %>
+    <%= form.datetime_field :end, id: :availability_end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :repeat_weekly %>
+    <%= form.check_box :repeat_weekly, id: :availability_repeat_weekly %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id, id: :availability_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :course_id %>
+    <%= form.number_field :course_id, id: :availability_course_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

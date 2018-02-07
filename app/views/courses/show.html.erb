@@ -1,21 +1,67 @@
 </br>
 
-<h1>Find someone to help you with <%= @course.title1 %></h1>
+<h1><%= @course.title1 %></h1>
 
 </br>
 
-<div>
-  Available Tutors:
+<div class="col">
+  
+  <% @tutors.each do |id, tutor| %>
+    <% url = url_for controller: 'users', action: 'show', id: tutor.id, course_id: params[:id] %>
+    <div class="row row-tutor clickable" data-href=<%= url %>>
+      <!-- User info (profile pic, name, major, etc.) -->
+      <div class="info-left">
+        <% if tutor.avatar.url.present? %>
+          <%= image_tag(tutor.avatar.url, class: "profile-img-sm") %>
+        <% end %>
+
+        <p class="my-auto">
+          <%= tutor.name %> </br>
+          1st Year </br>
+          CS Major </br>
+        </p>
+
+        <!-- star rating -->
+        <div class="rating my-auto">
+          <% if tutor.rating == -1 %>
+            <% (0..4).each do %>
+              <i class="fa fa-star-o star-empty"></i>
+            <% end %>
+          <% else %>
+            <% (tutor.rating+1).times do %>
+              <i class="fa fa-star star-full"></i>
+            <% end %>
+            <% (4-tutor.rating).times do %>
+              <i class="fa fa-star-o star-empty"></i>
+            <% end %>
+          <% end %>
+          </br> 
+
+          <div class="rating-desc">
+            <%= tutor.reviews %> 
+            review
+            <% if tutor.reviews > 1 %>
+              s
+            <% end %> 
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="my-auto info-right">
+
+          <div>
+            <p class="my-auto price">
+              $<%= tutor.price %>/hr
+            </p>
+          </div>
+
+      </div>
+    </div>
+  <% end %>
+
 </div>
-
-<% @tutors.each do |id, tutor| %>
-<% if tutor.avatar.url.present? %>
-
-<%= image_tag(tutor.avatar.url, class: "profile-img-sm") %>
-
-<% end %>
-  <%= tutor.name %>
-<% end %>
 
 <% link_to 'Edit', edit_course_path(@course) %>
 <% link_to 'Back', courses_path %>

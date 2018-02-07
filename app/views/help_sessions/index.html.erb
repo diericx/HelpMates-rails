@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Help Sessions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Tutor</th>
+      <th>Course</th>
+      <th>User started</th>
+      <th>Tutor started</th>
+      <th>Started at</th>
+      <th>User ended</th>
+      <th>Tutor ended</th>
+      <th>Ended at</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>Cancelled</th>
+      <th>Cancelled by</th>
+      <th>Message</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @help_sessions.each do |help_session| %>
+      <tr>
+        <td><%= help_session.user_id %></td>
+        <td><%= help_session.tutor_id %></td>
+        <td><%= help_session.course_id %></td>
+        <td><%= help_session.user_started %></td>
+        <td><%= help_session.tutor_started %></td>
+        <td><%= help_session.started_at %></td>
+        <td><%= help_session.user_ended %></td>
+        <td><%= help_session.tutor_ended %></td>
+        <td><%= help_session.ended_at %></td>
+        <td><%= help_session.start %></td>
+        <td><%= help_session.end %></td>
+        <td><%= help_session.cancelled %></td>
+        <td><%= help_session.cancelled_by %></td>
+        <td><%= help_session.message %></td>
+        <td><%= link_to 'Show', help_session %></td>
+        <td><%= link_to 'Edit', edit_help_session_path(help_session) %></td>
+        <td><%= link_to 'Destroy', help_session, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Help Session', new_help_session_path %>

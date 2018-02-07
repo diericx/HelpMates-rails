@@ -1,5 +1,38 @@
+@import "variables";
+
+.navbar-brand {
+    font-family: 'Milkshake';
+    color: rgb(165, 164, 204) !important;
+    font-size: 160%;
+    margin-top: -30px;
+    margin-bottom: -30px;
+}
+
+.bottom-border {
+    $border-width: 3px;
+    border-bottom: $border-width solid $light-gray;
+}
+
 nav {
+    @extend .bottom-border;
+    background-color: $off-white;
+}
+
+body {
+    font-family: 'open-sans-light';
     background-color: #e3f2fd;
+}
+
+#top-buffer {
+    height: $top-buffer;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.boxed {
+    background-color: $off-white;
 }
 
 %img-circle {
@@ -10,4 +43,81 @@ nav {
     @extend %img-circle;
     width: 70px;
     height: 70px;
+}
+.profile-img-lg {
+    @extend %img-circle;
+    width: 130px;
+    height: 130px;
+}
+
+.row-flex {
+    @extend .bottom-border;
+    $margin-bottom: 10px;
+    $padding: 15px;
+
+    background-color: $off-white;
+    padding: 15px;
+    margin-bottom: $margin-bottom;
+    display: flex;
+    justify-content: space-between;
+
+    &:hover {
+        background-color: $off-white-select;
+        cursor: pointer;
+    }
+
+    &:active {
+        border-bottom-width: 0px;
+        margin-top: ($border-width*2);
+        margin-bottom: $margin-bottom + ($border-width);
+        // padding-bottom: $margin-bottom + $border-width;
+    }
+    
+    .info-left {
+        display: flex;
+        font-size: 80%;
+        line-height: 15px;
+
+        p {
+            padding-left: 10px;
+        }
+    }
+
+    .info-right {
+        display: flex;
+    }
+}
+
+.fa-stack {
+    height: $navbar-height;
+    font-size: 120%;
+    margin-top: -10px;
+}
+
+.fa-stack[data-count][display-badge]:after{
+    position:absolute;
+    right:0%;
+    top:5%;
+    content: attr(data-count);
+    font-size:30%;
+    padding:.6em;
+    border-radius:999px;
+    line-height:.75em;
+    color: white;
+    background:rgba(255,0,0,.85);
+    text-align:center;
+    min-width:2em;
+    font-weight:bold;
+}
+
+.dropdown-menu {
+    background-color: $off-white;
+    top: 122%;
+    border-top-style: none;
+    border-color: $light-gray;
+    border-radius: 0%;
+}
+
+.dropdown-toggle::after {
+    display:none
 }

@@ -12,5 +12,27 @@
  *
  */
  @import "bootstrap";
+ @import "font-awesome";
+
+ @import "variables";
  @import "site";
- @import "welcome"
+ @import "welcome";
+ @import "courses";
+ @import "users";
+ @import "universities";
+
+  @font-face {
+    font-family:'Milkshake';
+    src:font-url('Milkshake.ttf');
+    src:font-url('Milkshake.ttf?#iefix') format("truetype"),
+  } 
+
+  @font-face {
+    font-family:'open-sans-light';
+    src:font-url('OpenSans-Light.ttf');
+    src:font-url('OpenSans-Light.ttf?#iefix') format("truetype"),
+  } 
+
+  body {
+      color: $font-color;
+  }

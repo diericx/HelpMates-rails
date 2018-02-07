@@ -1,0 +1,35 @@
+<script src="https://cdn.alloyui.com/3.0.1/aui/aui-min.js"></script>
+<link href="https://cdn.alloyui.com/3.0.1/aui-css/css/bootstrap.min.css" rel="stylesheet"></link>
+
+<div id="wrapper">
+  <div id="myScheduler"></div>
+</div>
+
+
+<script>
+        YUI().use(
+            'aui-scheduler',
+            function(Y) {
+              var events = [
+                {
+                  content: 'Partial Lunar Eclipse',
+                  endDate: new Date(2013, 3, 25, 5),
+                  startDate: new Date(2013, 3, 25, 1),
+                  repeated: true,
+                }
+              ];
+          
+              var weekView = new Y.SchedulerWeekView();
+          
+              new Y.Scheduler(
+                {
+                  boundingBox: '#myScheduler',
+                  date: new Date(2013, 3, 25),
+                  items: events,
+                  render: true,
+                  views: [weekView]
+                }
+              );
+            }
+          );
+</script>

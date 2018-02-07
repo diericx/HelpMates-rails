@@ -1,10 +1,18 @@
 </br>
 
-<h1>Choose a course from <%= @university.name %></h1>
+<h1><%= @university.name %></h1>
 
 </br>
 
-<table class="table table-hover">
+<% @courses.each do |course| %>
+    <div class="row-course clickable" data-href="<%= course_path(course) %>">
+        <%= course.title1 %>
+    </div>
+    <% course.subject %>
+<% end %>
+
+
+<!-- <table class="table table-hover">
     <thead>
         <tr>
             <th scope="col">Course Name</th>
@@ -20,13 +28,7 @@
             </tr>
         <% end %>
     </tbody>
-</table>
-
-<script>
-    $("tr[data-link]").click(function() {
-        window.location = $(this).data("link")
-    })
-</script>
+</table> -->
 
 <% link_to 'Edit', edit_university_path(@university) %>
 <% link_to 'Back', universities_path %>

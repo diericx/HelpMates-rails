@@ -1,0 +1,62 @@
+<%= form_with(model: help_session_request, local: true) do |form| %>
+  <% if help_session_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(help_session_request.errors.count, "error") %> prohibited this help_session_request from being saved:</h2>
+
+      <ul>
+      <% help_session_request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id, id: :help_session_request_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tutor_id %>
+    <%= form.number_field :tutor_id, id: :help_session_request_tutor_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :course_id %>
+    <%= form.number_field :course_id, id: :help_session_request_course_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start %>
+    <%= form.datetime_select :start, id: :help_session_request_start %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end %>
+    <%= form.datetime_select :end, id: :help_session_request_end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :accepted %>
+    <%= form.check_box :accepted, id: :help_session_request_accepted %>
+  </div>
+
+  <div class="field">
+    <%= form.label :denied %>
+    <%= form.check_box :denied, id: :help_session_request_denied %>
+  </div>
+
+  <div class="field">
+    <%= form.label :denied_by %>
+    <%= form.number_field :denied_by, id: :help_session_request_denied_by %>
+  </div>
+
+  <div class="field">
+    <%= form.label :message %>
+    <%= form.text_field :message, id: :help_session_request_message %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

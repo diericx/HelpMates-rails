@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @help_session.user_id %>
+</p>
+
+<p>
+  <strong>Tutor:</strong>
+  <%= @help_session.tutor_id %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @help_session.course_id %>
+</p>
+
+<p>
+  <strong>User started:</strong>
+  <%= @help_session.user_started %>
+</p>
+
+<p>
+  <strong>Tutor started:</strong>
+  <%= @help_session.tutor_started %>
+</p>
+
+<p>
+  <strong>Started at:</strong>
+  <%= @help_session.started_at %>
+</p>
+
+<p>
+  <strong>User ended:</strong>
+  <%= @help_session.user_ended %>
+</p>
+
+<p>
+  <strong>Tutor ended:</strong>
+  <%= @help_session.tutor_ended %>
+</p>
+
+<p>
+  <strong>Ended at:</strong>
+  <%= @help_session.ended_at %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @help_session.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @help_session.end %>
+</p>
+
+<p>
+  <strong>Cancelled:</strong>
+  <%= @help_session.cancelled %>
+</p>
+
+<p>
+  <strong>Cancelled by:</strong>
+  <%= @help_session.cancelled_by %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @help_session.message %>
+</p>
+
+<%= link_to 'Edit', edit_help_session_path(@help_session) %> |
+<%= link_to 'Back', help_sessions_path %>

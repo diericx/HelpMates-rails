@@ -1,0 +1,87 @@
+<%= form_with(model: help_session, local: true) do |form| %>
+  <% if help_session.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(help_session.errors.count, "error") %> prohibited this help_session from being saved:</h2>
+
+      <ul>
+      <% help_session.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id, id: :help_session_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tutor_id %>
+    <%= form.number_field :tutor_id, id: :help_session_tutor_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :course_id %>
+    <%= form.number_field :course_id, id: :help_session_course_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_started %>
+    <%= form.check_box :user_started, id: :help_session_user_started %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tutor_started %>
+    <%= form.check_box :tutor_started, id: :help_session_tutor_started %>
+  </div>
+
+  <div class="field">
+    <%= form.label :started_at %>
+    <%= form.datetime_select :started_at, id: :help_session_started_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_ended %>
+    <%= form.check_box :user_ended, id: :help_session_user_ended %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tutor_ended %>
+    <%= form.check_box :tutor_ended, id: :help_session_tutor_ended %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ended_at %>
+    <%= form.datetime_select :ended_at, id: :help_session_ended_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start %>
+    <%= form.datetime_select :start, id: :help_session_start %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end %>
+    <%= form.datetime_select :end, id: :help_session_end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cancelled %>
+    <%= form.check_box :cancelled, id: :help_session_cancelled %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cancelled_by %>
+    <%= form.number_field :cancelled_by, id: :help_session_cancelled_by %>
+  </div>
+
+  <div class="field">
+    <%= form.label :message %>
+    <%= form.text_field :message, id: :help_session_message %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

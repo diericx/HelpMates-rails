@@ -1,0 +1,38 @@
+<div class="row profile-top">
+    <div class="col-12">
+        <% if @user.avatar.url.present? %>
+          <%= image_tag(@user.avatar.url, class: "profile-img-lg") %>
+        <% end %>
+    </div>
+</div>
+
+<div class="row center-align">
+    <div class="col-12 name">
+        <b><%= @user.name %></b>
+    </div>
+</div>
+
+<div class="row boxed availability">
+    <div class="col-12">
+        <b><%= @user.name %>'s Availability</b>
+    </div>
+
+    <div class="col-12">
+        <table class="table">
+            <tbody>
+                <% @availabilities.each do |avlblty| %>
+                    <tr>
+                        <td><%= avlblty.start %></td>
+                        <td><%= avlblty.end %></td>
+                        <% request = HelpSessionRequest.new %>
+                        <!-- user_id: current_user.id, tutor_id: @user.id, course_id: avlblty.course_id, start: avlblty.start, end: avlblty.end -->
+                        <td><%= link_to "Send Request", help_session_requests_path(user_id: current_user.id, tutor_id: @user.id, course_id: avlblty.course_id, start: avlblty.start, end: avlblty.end), :method=>:post %></td>
+                    </tr>
+                <% end %>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+        

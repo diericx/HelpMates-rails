@@ -1,3 +1,41 @@
 // Place all the styles related to the Courses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.row-tutor {
+    @extend .row-flex;
+
+    %rating {
+        font-size: 190%;
+        color: #f1c40f;
+    }
+
+    .star-empty {
+        @extend %rating;
+    }
+
+    .star-full {
+        @extend %rating;
+        text-shadow: 0 0 5px;
+    }
+
+    .rating {
+        padding-top: 8px;
+        margin-left: 20px;
+        text-align: left;
+    }
+
+    .rating-desc {
+        color: lightgray;
+        font-size: 70%;
+        line-height: 12px;
+    }
+
+    .price {
+        font-size: 200%;
+    }
+}
+
+.row-course {
+    @extend .row-flex;
+}
