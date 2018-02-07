@@ -16,14 +16,15 @@ ActiveRecord::Schema.define(version: 20180205210627) do
   enable_extension "plpgsql"
 
   create_table "availabilities", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "course_id"
-    t.datetime "start"
-    t.datetime "end"
     t.money "hourly_rate", scale: 2
     t.boolean "repeat_weekly"
+    t.integer "user_id"
+    t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "day"
+    t.time "start_time"
+    t.time "end_time"
   end
 
   create_table "completed_courses", force: :cascade do |t|
